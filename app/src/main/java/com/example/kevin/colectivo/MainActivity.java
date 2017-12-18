@@ -1,12 +1,11 @@
 package com.example.kevin.colectivo;
 
 import android.content.Intent;
-import android.location.Location;
+import android.content.res.Resources;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -17,6 +16,7 @@ import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
     int prog=0;
+    public static Resources resources;
 
     double data[][] ={{-58.50479664982050	,-31.6239727448884}
     ,{-58.50462852065230	,-31.6241376722635
@@ -68,14 +68,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        Intent intent = new Intent(this,LoginMainActivity.class);
+        startActivity(intent);
+        /*
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
 
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                t.append("\n " + location.getLongitude() + " " + location.getLatitude());
+                //t.append("\n " + location.getLongitude() + " " + location.getLatitude());
             }
 
             @Override
@@ -95,15 +97,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         };
-
-        callAsynchronousTask();
+            */
+        //callAsynchronousTask();
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode){
             case 10:
-                configure_button();
+                //configure_button();
                 break;
             default:
                 break;
